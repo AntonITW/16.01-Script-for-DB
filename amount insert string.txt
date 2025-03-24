@@ -1,0 +1,10 @@
+SELECT users.name, amount_spent.amount FROM amount_spent INNER JOIN users ON users.id=amount_spent.user_ID WHERE users.city = 3 ORDER BY name;
+
+
+
+SELECT SUM(amount) 
+FROM amount_spent
+WHERE user_ID IN
+		(SELECT id 
+         FROM users 
+         WHERE users.city = 3);
