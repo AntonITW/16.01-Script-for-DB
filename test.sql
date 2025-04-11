@@ -240,34 +240,34 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `age` int(11) DEFAULT NULL,
-  `city` int(11) DEFAULT NULL
+  `city` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 
 INSERT INTO `users` (`id`, `name`, `age`, `city`) VALUES
-(1, 'Anton', 50, 9),
-(2, 'Nikolai', 27, 3),
-(3, 'Dimitri', 20, 3),
-(4, 'Alex', 25, 3),
-(5, 'Victor', 33, 18),
-(6, 'Fedor', 35, 7),
-(7, 'Yuri', 23, 8),
-(8, 'Anastasia', 18, 15),
-(9, 'Ekaterina', 45, 20),
-(10, 'Tatiana', 67, 21),
-(11, 'Nikita', 41, 13),
-(12, 'Boris', 69, 1),
-(13, 'Alexandra', 25, 3),
-(14, 'Viktoria', 29, 3),
-(15, 'Timur', 19, 4),
-(16, 'Mikhail', 44, 5),
-(17, 'Natalia', 65, 6),
-(18, 'Ruslan', 19, 7),
-(19, 'Danil', 31, 8),
-(20, 'Ivan', 94, 3),
-(21, 'Konstantin', 45, 11),
-(22, 'Svatoslav', 25, 12);
+(1, 'Anton', 50, 'Anapa'),
+(2, 'Nikolai', 27, 'Moscow'),
+(3, 'Dimitri', 20, 'Moscow'),
+(4, 'Alex', 25, 'Moscow'),
+(5, 'Victor', 33, 'Twer'),
+(6, 'Fedor', 35, 'Vladivostok'),
+(7, 'Yuri', 23, 'Minsk'),
+(8, 'Anastasia', 18, 'Bryansk'),
+(9, 'Ekaterina', 45, 'Arhangelsk'),
+(10, 'Tatiana', 67, 'Habarovsk'),
+(11, 'Nikita', 41, 'Krasnodar'),
+(12, 'Boris', 69, 'Yoshkar-Ola'),
+(13, 'Alexandra', 25, 'Moscow'),
+(14, 'Viktoria', 29, 'Moscow'),
+(15, 'Timur', 19, 'St.Petersburg'),
+(16, 'Mikhail', 44, 'Samara'),
+(17, 'Natalia', 65, 'Kazan'),
+(18, 'Ruslan', 19, 'Vladivostok'),
+(19, 'Danil', 31, 'Minsk'),
+(20, 'Ivan', 94, 'Moscow'),
+(21, 'Konstantin', 45, 'Sevastopol'),
+(22, 'Svatoslav', 25, 'London');
 
 
 ALTER TABLE `amount_spent`
@@ -293,9 +293,5 @@ ALTER TABLE `users`
 
 ALTER TABLE `amount_spent`
   ADD CONSTRAINT `amount_spent_ibfk_1` FOREIGN KEY (`user_ID`) REFERENCES `users` (`id`);
-
-
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`city`) REFERENCES `cities` (`id`);
 COMMIT;
 
