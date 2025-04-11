@@ -293,5 +293,18 @@ ALTER TABLE `users`
 
 ALTER TABLE `amount_spent`
   ADD CONSTRAINT `amount_spent_ibfk_1` FOREIGN KEY (`user_ID`) REFERENCES `users` (`id`);
+
+SELECT users.name, amount_spent.amount FROM amount_spent INNER JOIN users ON users.id=amount_spent.user_ID WHERE users.city = 'Moscow' ORDER BY name;
+
+
+
+SELECT SUM(amount) 
+FROM amount_spent
+WHERE user_ID IN
+		(SELECT id 
+         FROM users 
+         WHERE users.city = 'Moscow');
+
+
 COMMIT;
 
